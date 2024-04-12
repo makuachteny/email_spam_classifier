@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Spam Classifier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main body -->
+    <main class="main-container">
+      <!-- Form -->
+      <h2>Spam Classifier</h2>
+      <form method="POST" action="/classify">
+        <textarea
+          name="email"
+          id="email-text"
+          cols="30"
+          rows="10"
+          placeholder="Type or paste your email here"
+        >
+{{ email }}</textarea
+        >
+
+        <!-- Button -->
+        <div class="btn-container">
+          <button class="btn" type="submit">Classify</button>
+          <a href="/">Reset</a>
+        </div>
+        <!--Conditional statement to display whether the email is a spam or not-->
+      </form>
+      <!-- Result -->
+      <div class="result">
+        <h3>Result</h3>
+          {% if prediction %}
+        {% if prediction == 1 %}
+        <h2 style="color: red">Spam</h2>
+        {% else %}
+        <h2 style="color: green">Not Spam</h2>
+        {% endif %}
+        {% endif %}
+      </div>
+    </main>
+  </body>
+</html>
